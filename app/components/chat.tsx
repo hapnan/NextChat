@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  type JSX,
 } from "react";
 
 import SendWhiteIcon from "../icons/send-white.svg";
@@ -451,7 +452,7 @@ export function ChatAction(props: {
 }
 
 function useScrollToBottom(
-  scrollRef: RefObject<HTMLDivElement>,
+  scrollRef: RefObject<HTMLDivElement | null>,
   detach: boolean = false,
   messages: ChatMessage[],
 ) {

@@ -21,6 +21,7 @@ import React, {
   useState,
   useCallback,
   useRef,
+  type JSX,
 } from "react";
 import { IconButton } from "./button";
 import { Avatar } from "./emoji";
@@ -490,8 +491,8 @@ export function Selector<T>(props: {
     Array.isArray(props.defaultSelectedValue)
       ? props.defaultSelectedValue
       : props.defaultSelectedValue !== undefined
-      ? [props.defaultSelectedValue]
-      : [],
+        ? [props.defaultSelectedValue]
+        : [],
   );
 
   const handleSelection = (e: MouseEvent, value: T) => {
@@ -554,7 +555,7 @@ export function Selector<T>(props: {
 }
 export function FullScreen(props: any) {
   const { children, right = 10, top = 10, ...rest } = props;
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(undefined);
   const [fullScreen, setFullScreen] = useState(false);
   const toggleFullscreen = useCallback(() => {
     if (!document.fullscreenElement) {
